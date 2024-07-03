@@ -1,11 +1,11 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-  <div>app</div>
+  <div class="a">app</div>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.a {
+	color: $color-theme;
+}
 </style>
