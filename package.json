@@ -1,25 +1,25 @@
 {
-  "name": "kfw-admin",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite --open --host",
-    "build": "vite build",
-    "preview": "vite preview",
+	"name": "kfw-admin",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite --open --host",
+		"build": "vite build",
+		"preview": "vite preview",
 		"format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
 	},
-  "dependencies": {
-    "vue": "^3.4.29"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
-    "less": "^4.2.0",
-    "prettier": "^3.3.2",
-    "rollup-plugin-visualizer": "^5.12.0",
-    "sass": "^1.77.6",
-    "vite": "^5.3.1",
-    "vite-plugin-restart": "^0.4.1",
-    "vite-plugin-vue-devtools": "^7.3.5"
-  }
+	"dependencies": {
+		"vue": "^3.4.29"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^5.0.5",
+		"less": "^4.2.0",
+		"prettier": "^3.3.2",
+		"rollup-plugin-visualizer": "^5.12.0",
+		"sass": "^1.77.6",
+		"vite": "^5.3.1",
+		"vite-plugin-restart": "^0.4.1",
+		"vite-plugin-vue-devtools": "^7.3.5"
+	}
 }
