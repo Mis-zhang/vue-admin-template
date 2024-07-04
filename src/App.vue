@@ -33,6 +33,7 @@ const add = () => {
 	<SvgIcon name="alipay" size="24" color="red"></SvgIcon>
 	<span>测试git ssh 链接</span>
 	<span>测试不需要密码</span>
+	<span>测试window提交</span>
 </template>
 
 <style lang="scss" scoped>
