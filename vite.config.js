@@ -19,6 +19,7 @@ import { vitePluginForArco } from '@arco-plugins/vite-vue';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 // 使用 gzip 来压缩资源
 import viteCompression from 'vite-plugin-compression';
+// 自动添加浏览器前缀
 import postcssPresetEnv from 'postcss-preset-env';
 
 // https://vitejs.dev/config/
