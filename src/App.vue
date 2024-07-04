@@ -31,6 +31,7 @@ const add = () => {
 	</a-space>
 	<icon-arrow-down />
 	<SvgIcon name="alipay" size="24" color="red"></SvgIcon>
+	<span>测试git ssh 链接</span>
 </template>
 
 <style lang="scss" scoped>
