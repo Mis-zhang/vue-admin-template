@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite --open --host",
     "build": "vite build",
-    "preview": "vite preview"
-  },
+    "preview": "vite preview",
+		"format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
+	},
   "dependencies": {
     "vue": "^3.4.29"
   },
