@@ -13,6 +13,8 @@
 		"@arco-themes/vue-gi-demo": "^0.0.48",
 		"@vitejs/plugin-vue-jsx": "^4.0.0",
 		"animate.css": "^4.1.1",
+		"pinia": "^2.1.7",
+		"pinia-plugin-persistedstate": "^3.2.1",
 		"vue": "^3.4.29",
 		"vue-router": "^4.4.0"
 	},
