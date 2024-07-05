@@ -11,8 +11,6 @@ const add = () => {
 	<a-space>
 		<a-button type="primary">Primary</a-button>
 		<a-button>Secondary</a-button>
-		<a-button type="dashed">Dashed</a-button>
-		<a-button type="outline">Outline</a-button>
 		<a-button type="text">Text</a-button>
 	</a-space>
 	<a-space>
@@ -20,13 +18,6 @@ const add = () => {
 			<template #icon>
 				<icon-plus />
 			</template>
-		</a-button>
-		<a-button type="primary">
-			<template #icon>
-				<icon-delete />
-			</template>
-			<!-- Use the default slot to avoid extra spaces -->
-			<template #default>Delete</template>
 		</a-button>
 	</a-space>
 	<icon-arrow-down />
@@ -38,10 +29,7 @@ const add = () => {
 
 <style lang="scss" scoped>
 .a {
-	color: $color-theme;
 	font-size: 12px;
-	width: 100%;
-	height: 100%;
 	user-select: none;
 }
 </style>

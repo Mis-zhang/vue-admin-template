@@ -1,7 +1,20 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+// 设置 Arco 组件全局一些配置
+import { Card, Modal } from '@arco-design/web-vue';
+// 导入 Arco Ui 库 自定义样式
+import '@/styles/arco-ui/index.less';
+// 导入全局 scss 主文件
+import '@/styles/index.scss';
+// 导入 animate.css 动画库
+import 'animate.css/animate.min.css';
+// 导入自定义过度动画
+import '@/styles/css/transition.css';
 
 // 支持SVG
 import 'virtual:svg-icons-register';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+Card.props.bordered = false;
+Modal._context = app._context;
+app.mount('#app');
