@@ -10,13 +10,16 @@
 		"format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\""
 	},
 	"dependencies": {
+		"@arco-design/color": "^0.4.0",
 		"@arco-themes/vue-gi-demo": "^0.0.48",
 		"@vitejs/plugin-vue-jsx": "^4.0.0",
 		"animate.css": "^4.1.1",
+		"lodash-es": "^4.17.21",
 		"pinia": "^2.1.7",
 		"pinia-plugin-persistedstate": "^3.2.1",
 		"vue": "^3.4.29",
-		"vue-router": "^4.4.0"
+		"vue-router": "^4.4.0",
+		"xe-utils": "^3.5.28"
 	},
 	"devDependencies": {
 		"@arco-design/web-vue": "^2.55.3",
