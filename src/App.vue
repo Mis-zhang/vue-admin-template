@@ -1,35 +1,35 @@
 <script setup>
-const count = ref(0);
-const add = () => {
-	count.value++;
-};
+import { useAppStore, useDictStore } from '@/stores';
+// 语言包
+import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
+
+defineOptions({ name: 'App' });
+
+// 语言包
+const locales = { 'zh-cn': zhCN };
+const localeType = ref('zh-cn');
+const locale = computed(() => locales[localeType.value] || zhCN);
+
+// 主题设置
+const appStore = useAppStore();
+appStore.initTheme();
+
+// 字典数据
+const dictStore = useDictStore();
+dictStore.getDictData();
 </script>
 
 <template>
-	<div class="a" @click="add">app{{ count }}</div>
-	<HellowWorld></HellowWorld>
-	<a-space>
-		<a-button type="primary">Primary</a-button>
-		<a-button>Secondary</a-button>
-		<a-button type="text">Text</a-button>
-	</a-space>
-	<a-space>
-		<a-button type="primary">
-			<template #icon>
-				<icon-plus />
-			</template>
-		</a-button>
-	</a-space>
-	<icon-arrow-down />
-	<SvgIcon name="alipay" size="24" color="red"></SvgIcon>
-	<span>测试git ssh 链接</span>
-	<span>测试不需要密码</span>
-	<span>测试window提交</span>
+	<a-config-provider :locale="locale" update-at-scroll>
+		<router-view />
+		<template #loading>
+			<img class="loading-icon" src="/static/images/loading.gif" alt="loading" />
+		</template>
+	</a-config-provider>
 </template>
 
 <style lang="scss" scoped>
-.a {
-	font-size: 12px;
-	user-select: none;
+.loading-icon {
+	width: 30px;
 }
 </style>
