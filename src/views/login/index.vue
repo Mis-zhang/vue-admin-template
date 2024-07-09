@@ -1,4 +1,5 @@
 <script setup>
+import LoginBg from './components/index.vue';
 import { isMobile } from '@/utils';
 import * as Regexp from '@/utils/regexp';
 import { useLoading } from '@/hooks';
@@ -8,14 +9,19 @@ defineOptions({ name: 'Login' });
 const form = reactive({
 	username: '',
 	password: '',
+	sms_code: '',
 });
 
 const rules = {
-	username: [{ required: true, message: '请输入账号' }],
+	username: [
+		{ required: true, message: '请输入手机号' },
+		{ match: Regexp.Phone, message: '手机号格式不正确' },
+	],
 	password: [
 		{ required: true, message: '请输入密码' },
 		{ match: Regexp.Password, message: '输入密码格式不正确' },
 	],
+	sms_code: [{ required: true, message: '请输入验证码' }],
 };
 
 const { loading, setLoading } = useLoading();
@@ -29,14 +35,15 @@ const login = () => {};
 		<a-row align="stretch" class="login-box">
 			<a-col :xs="0" :sm="12" :md="15">
 				<div class="login-left">
-					<!--					<img class="login-left__img" src="@/assets/svgs/login-img.svg" />-->
+					<img class="login-left__icon" src="@/assets/images/login_icon.png" alt="icon" />
+					<img class="login-left__tips" src="@/assets/images/login_tips.png" alt="tips" />
 				</div>
 			</a-col>
 			<a-col :xs="24" :sm="12" :md="9">
 				<div class="login-right">
 					<a-form
 						ref="formRef"
-						:size="isMobile() ? 'large' : 'medium'"
+						:size="isMobile() ? 'large' : 'large'"
 						:model="form"
 						:rules="rules"
 						:style="{ width: '84%' }"
@@ -44,10 +51,11 @@ const login = () => {};
 						:wrapper-col-style="{ flex: 1 }"
 					>
 						<h3 class="login-right__title">
-							<!--							<img class="logo" src="@/assets/images/logo.gif" /><span>Admin Pro</span>-->
+							<img class="logo" src="@/assets/images/logo.png" alt="快服务" />
+							<span>后台管理系统</span>
 						</h3>
 						<a-form-item field="username">
-							<a-input v-model="form.username" placeholder="账号 admin/user" allow-clear>
+							<a-input v-model="form.username" placeholder="手机号" :max-length="11" allow-clear>
 								<template #prefix><icon-user :stroke-width="1" :style="{ fontSize: '20px' }" /></template>
 							</a-input>
 						</a-form-item>
@@ -56,14 +64,25 @@ const login = () => {};
 								<template #prefix><icon-lock :stroke-width="1" :style="{ fontSize: '20px' }" /></template>
 							</a-input-password>
 						</a-form-item>
-						<a-form-item>
-							<a-row justify="end" align="center" class="w-full">
-								<a-link>忘记密码</a-link>
-							</a-row>
+						<a-form-item field="sms_code">
+							<a-input v-model="form.sms_code" placeholder="验证码" allow-clear class="sms_input">
+								<template #append>
+									<img
+										src="https://mis3.kfw.net/bmis/v1_0/user/image_code?uu_id=E56831CE-1573-4307-9430-65E1FE76C308"
+										alt="验证码"
+										class="sms_code"
+									/>
+								</template>
+							</a-input>
 						</a-form-item>
+						<!--						<a-form-item>-->
+						<!--							<a-row justify="end" align="center" class="w-full">-->
+						<!--								<a-link status="success">忘记密码</a-link>-->
+						<!--							</a-row>-->
+						<!--						</a-form-item>-->
 						<a-form-item>
 							<a-space direction="vertical" fill class="w-full">
-								<a-button type="primary" size="large" long :loading="loading" @click="login">登录</a-button>
+								<a-button type="primary" size="large" long :loading="loading" @click="login">开启美好的一天</a-button>
 								<a-button type="text" size="large" long class="register-btn">注册账号</a-button>
 							</a-space>
 						</a-form-item>
@@ -71,6 +90,10 @@ const login = () => {};
 				</div>
 			</a-col>
 		</a-row>
+		<!--		背景 svg-->
+		<LoginBg></LoginBg>
+		<!--		浅色深色主题切换 icon-->
+		<ThemeBtn class="theme-btn"></ThemeBtn>
 	</div>
 </template>
 
@@ -101,17 +124,25 @@ const login = () => {};
 	position: relative;
 	overflow: hidden;
 	background: linear-gradient(60deg, rgb(var(--primary-6)), rgb(var(--primary-3)));
-
-	&__img {
-		width: 100%;
-		height: 100%;
+	&__icon {
+		width: auto;
+		height: 50%;
 		position: absolute;
-		top: 0;
+		top: 40%;
 		bottom: 0;
-		left: 0;
+		left: 50%;
 		right: 0;
+		transform: translate(-50%, -50%);
 		transition: all 0.3s;
-		object-fit: cover;
+	}
+	&__tips {
+		width: 70%;
+		height: auto;
+		position: absolute;
+		bottom: 15%;
+		left: 50%;
+		transform: translateX(-50%);
+		transition: all 0.3s;
 	}
 }
 
@@ -122,25 +153,38 @@ const login = () => {};
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding-top: 30px;
 	box-sizing: border-box;
 
 	&__title {
 		color: var(--color-text-1);
 		font-weight: 500;
-		font-size: 20px;
+		font-size: 18px;
 		line-height: 32px;
 		margin-bottom: 20px;
 		text-align: center;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
 		.logo {
-			width: 32px;
-			height: 32px;
-			margin-right: 6px;
+			width: 60px;
+			height: 60px;
+			margin-right: 10px;
 		}
+	}
+	.sms_input {
+		:deep(.arco-input-append) {
+			padding: 0;
+		}
+	}
+	.sms_code {
+		width: 100px;
+		height: 35px;
+		border-radius: 4px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		cursor: pointer;
 	}
 }
 
