@@ -13,6 +13,7 @@
 		"@arco-design/color": "^0.4.0",
 		"@arco-themes/vue-gi-demo": "^0.0.48",
 		"@vitejs/plugin-vue-jsx": "^4.0.0",
+		"@vueuse/core": "^10.11.0",
 		"animate.css": "^4.1.1",
 		"lodash-es": "^4.17.21",
 		"pinia": "^2.1.7",
