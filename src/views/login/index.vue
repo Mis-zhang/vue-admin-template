@@ -177,14 +177,14 @@ const login = () => {};
 		:deep(.arco-input-append) {
 			padding: 0;
 		}
-	}
-	.sms_code {
-		width: 100px;
-		height: 35px;
-		border-radius: 4px;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-		cursor: pointer;
+		.sms_code {
+			width: 100px;
+			height: 35px;
+			border-radius: 4px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			cursor: pointer;
+		}
 	}
 }
 
