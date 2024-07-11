@@ -75,11 +75,11 @@ const login = () => {};
 								</template>
 							</a-input>
 						</a-form-item>
-						<!--						<a-form-item>-->
-						<!--							<a-row justify="end" align="center" class="w-full">-->
-						<!--								<a-link status="success">忘记密码</a-link>-->
-						<!--							</a-row>-->
-						<!--						</a-form-item>-->
+						<a-form-item>
+							<a-row justify="end" align="center" class="w-full">
+								<a-link status="success">忘记密码</a-link>
+							</a-row>
+						</a-form-item>
 						<a-form-item>
 							<a-space direction="vertical" fill class="w-full">
 								<a-button type="primary" size="large" long :loading="loading" @click="login">开启美好的一天</a-button>
