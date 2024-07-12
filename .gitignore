@@ -29,3 +29,7 @@ coverage
 *.tsbuildinfo
 
 stats.html
+
+.idea/deployment.xml
+.idea/sshConfigs.xml
+.idea/webServers.xml
